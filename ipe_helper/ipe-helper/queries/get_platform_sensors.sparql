@@ -1,0 +1,10 @@
+PREFIX sosa:<http://www.w3.org/ns/sosa/>
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ioto:<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#>
+
+SELECT ?sensor 
+WHERE {
+	?platform rdf:type sosa:Platform.
+	?platform ioto:hasId "{{ platform_id }}".
+	?platform sosa:hosts ?sensor.
+}
