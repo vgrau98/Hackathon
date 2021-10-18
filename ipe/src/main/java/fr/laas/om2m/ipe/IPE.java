@@ -14,12 +14,17 @@ import fr.laas.mooc.helper.virtual.T_Room;
 import fr.laas.mooc.helper.virtual.VirtualSensor;
 
 public class IPE implements IVirtualSensor {
+
+
 	private SensorManager sm;
+
+	//To change regarding gateway IP
+	private String IP_MN = "http://localhost:8080/~/mn-cse";
 
 	@Override
 	public SensorManager createSensorManager(String name) {
 		HTTPPost request = new HTTPPost();
-		request.setDestinator("http://localhost:8080/~/in-cse");
+		request.setDestinator(IP_MN);
 		request.addHeader("X-M2M-Origin", "admin:admin");
 		request.addHeader("Content-Type", "application/xml;ty=2");
 		AE ae = ResourceCreator.createAE(name, "VirtualSensor");
@@ -32,7 +37,7 @@ public class IPE implements IVirtualSensor {
 	@Override
 	public void createPlatform(String sm, Platform platform) {
 		HTTPPost request = new HTTPPost();
-		request.setDestinator("http://localhost:8080/~/in-cse/in-name/"+sm);
+		request.setDestinator(IP_MN+sm);
 		request.addHeader("X-M2M-Origin", "admin:admin");
 		request.addHeader("Content-Type", "application/xml;ty=3");
 		Container cnt = ResourceCreator.createContainer(platform.getName());
@@ -50,14 +55,14 @@ public class IPE implements IVirtualSensor {
 			this.sm.addSensor(platform, sensor);
 		}
 		HTTPPost request = new HTTPPost();
-		request.setDestinator("http://localhost:8080/~/in-cse/in-name/"+sm+"/"+platform);
+		request.setDestinator(IP_MN+sm+"/"+platform);
 		request.addHeader("X-M2M-Origin", "admin:admin");
 		request.addHeader("Content-Type", "application/xml;ty=3");
 		Container cnt = ResourceCreator.createContainer(sensor.getId());
 		request.setBody(Serializer.toXML(cnt));
 		request.send();
 		request = new HTTPPost();
-		request.setDestinator("http://localhost:8080/~/in-cse/in-name/"+sm+"/"+platform+"/"+sensor.getId());
+		request.setDestinator(IP_MN+"/in-name/"+sm+"/"+platform+"/"+sensor.getId());
 		request.addHeader("X-M2M-Origin", "admin:admin");
 		request.addHeader("Content-Type", "application/xml;ty=24");
 		SemanticDescriptor smd = ResourceCreator.createSemanticDescriptor(sensor.getId()+"_DESC", sensor.getSensorDescriptor());
@@ -70,13 +75,15 @@ public class IPE implements IVirtualSensor {
 		float value=0.0f;
 		for(Platform pf : this.sm.getAllPlatforms()){
 			if(pf.getName().equals(platform)){
-				value = pf.getSensor(sensor).readValue();
+				
+				//Here we have to read sensors measurement from ESP8226
+				value = 0;
 			}
 		}
 		HTTPPost request = new HTTPPost();
-		request.setDestinator("http://localhost:8080/~/in-cse/in-name/"+sm+"/"+platform+"/"+sensor);
+		request.setDestinator(IP_MN+"/in-name/"+sm+"/"+platform+"/"+sensor);
 		request = new HTTPPost();
-		request.setDestinator("http://localhost:8080/~/in-cse/in-name/"+sm+"/"+platform+"/"+sensor);
+		request.setDestinator(IP_MN+"/in-name/"+sm+"/"+platform+"/"+sensor);
 		request.addHeader("X-M2M-Origin", "admin:admin");
 		request.addHeader("Content-Type", "application/xml;ty=4");
 		ContentInstance cin = new ContentInstance();
