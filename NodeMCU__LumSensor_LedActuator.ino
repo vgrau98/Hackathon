@@ -5,12 +5,12 @@
 
 ///////////////Parameters & Constants/////////////////
 // WIFI params
-char* WIFI_SSID = "Gathou";    // Configure here the SSID of your WiFi Network
-char* WIFI_PSWD = "12345678"; // Configure here the PassWord of your WiFi Network
+char* WIFI_SSID = "vgrau";    // Configure here the SSID of your WiFi Network
+char* WIFI_PSWD = "victorgrau93"; // Configure here the PassWord of your WiFi Network
 int WIFI_DELAY  = 100; //ms
 
 // oneM2M : CSE params
-String CSE_IP      = "172.20.10.3" ; //"192.168.1.35"; //Configure here the IP Address of your oneM2M CSE
+String CSE_IP      = "10.32.42.45" ; //"192.168.1.35"; //Configure here the IP Address of your oneM2M CSE
 int   CSE_HTTP_PORT = 8080;
 String CSE_NAME    = "in-name";
 String CSE_M2M_ORIGIN  = "admin:admin";
