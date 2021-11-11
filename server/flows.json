@@ -1,0 +1,1413 @@
+[
+    {
+        "id": "80fa296fbd6a38c5",
+        "type": "tab",
+        "label": "Flow 4",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9786ca80fb3b249d",
+        "type": "Named Sensor Data",
+        "z": "80fa296fbd6a38c5",
+        "name": "sensor_platform",
+        "cseConfig": "62fbf17d5cecac6f",
+        "aeConfig": "0b18cc3220f2fbbd",
+        "cntName": "DATA",
+        "cin": "la",
+        "x": 500,
+        "y": 540,
+        "wires": [
+            [
+                "ddcb394bdd51bbcb"
+            ]
+        ]
+    },
+    {
+        "id": "ddcb394bdd51bbcb",
+        "type": "Content Extractor",
+        "z": "80fa296fbd6a38c5",
+        "name": "Content Extractor",
+        "x": 710,
+        "y": 540,
+        "wires": [
+            [
+                "be25265ad7f3e185",
+                "38a56b3c94bdc27c"
+            ]
+        ]
+    },
+    {
+        "id": "80554893b1fffcdb",
+        "type": "debug",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1130,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "be25265ad7f3e185",
+        "type": "function",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "func": "\n\nvar luminosity=msg.payload.substring(msg.payload.indexOf(\"luminosity\")+13, msg.payload.indexOf(\",\"));\nvar humidity=msg.payload.substring(msg.payload.indexOf(\"humidity\"+11), msg.payload.indexOf(\",\",msg.payload.indexOf(\"humidity\")));\nvar water_consumption=msg.payload.substring(msg.payload.indexOf(\"water_consumption\"+20), msg.payload.indexOf(\",\",msg.payload.indexOf(\"water_consumption\")));\nvar height=msg.payload.substring(msg.payload.indexOf(\"height\"+9), msg.payload.indexOf(\",\",msg.payload.indexOf(\"height\")));\nvar temperature=msg.payload.substring(msg.payload.indexOf(\"temperature\"+14), msg.payload.indexOf(\",\",msg.payload.indexOf(\"temperature\")));\nvar period=msg.payload.substring(msg.payload.indexOf(\"period\"+9), msg.payload.indexOf(\",\",msg.payload.indexOf(\"period\")));\nvar date=msg.payload.substring(msg.payload.indexOf(\"day\"+6), msg.payload.indexOf(\"}\",msg.payload.indexOf(\"day\")));\n\nmsg.payload = luminosity+\" \"+ humidity+\" \"+water_consumption+\" \"+height+\" \"+temperature+\" \"+period+\" \"+date;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 660,
+        "wires": [
+            [
+                "122e4b160bba53b3"
+            ]
+        ]
+    },
+    {
+        "id": "6d01d71ce8ebd9a9",
+        "type": "ui_chart",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "group": "4d75a18b2c09ab27",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Luminosity",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 1130,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dac0f1a79431cc3f",
+        "type": "ui_dropdown",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "fed8b78c95e3d29a",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "On",
+                "value": 1,
+                "type": "num"
+            },
+            {
+                "label": "Off",
+                "value": 2,
+                "type": "num"
+            },
+            {
+                "label": "Auto",
+                "value": "3",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "payload",
+        "topicType": "msg",
+        "x": 120,
+        "y": 800,
+        "wires": [
+            [
+                "ab0986c43cbfe224"
+            ]
+        ]
+    },
+    {
+        "id": "9bec95cb36253d96",
+        "type": "debug",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "27565dabc01565d1",
+        "type": "Application Entity",
+        "z": "80fa296fbd6a38c5",
+        "name": "Wtaer_actuator",
+        "cseConfig": "a516021431c03c43",
+        "aeConfig": "6ac72365387b5657",
+        "appId": "api",
+        "pointOfAccess": "http://127.0.0.1:8080/",
+        "labels": "",
+        "x": 480,
+        "y": 320,
+        "wires": [
+            [
+                "3a48dcc3090eea5a"
+            ]
+        ]
+    },
+    {
+        "id": "3a48dcc3090eea5a",
+        "type": "Container Node",
+        "z": "80fa296fbd6a38c5",
+        "cseConfig": "a516021431c03c43",
+        "aeConfig": "6ac72365387b5657",
+        "acpConfig": "1ed92ba8cf15e170",
+        "cntName": "DATA",
+        "mni": "1000",
+        "x": 670,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0d9ac3a16a766820",
+        "type": "Content Instance",
+        "z": "80fa296fbd6a38c5",
+        "cseConfig": "a516021431c03c43",
+        "parentUri": "/in-cse/in-name/WATER_ACTUATOR/DATA",
+        "contentFormat": "text/plain",
+        "name": "water_a",
+        "x": 540,
+        "y": 780,
+        "wires": [
+            [
+                "9bec95cb36253d96"
+            ]
+        ]
+    },
+    {
+        "id": "b5e192b9c28f8411",
+        "type": "http request",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "method": "PUT",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:8080/~/mn-cse/mn-name/acp_admin",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 630,
+        "y": 400,
+        "wires": [
+            [
+                "2ee642f5a89909f3"
+            ]
+        ]
+    },
+    {
+        "id": "4f0e0965bae008cd",
+        "type": "inject",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "props": [
+            {
+                "p": "headers",
+                "v": "\"\"",
+                "vt": "json"
+            },
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "\"\"",
+        "payloadType": "json",
+        "x": 250,
+        "y": 400,
+        "wires": [
+            [
+                "2cc13586d8d2af61",
+                "27565dabc01565d1"
+            ]
+        ]
+    },
+    {
+        "id": "2cc13586d8d2af61",
+        "type": "function",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "func": "\nmsg.headers = {};\nmsg.headers[\"X-M2M-Origin\"]=\"admin:admin\";\nmsg.headers[\"Content-Type\"]=\"application/json;\";\nmsg.payload = {\n         \"m2m:acp\": {\n           \n           \"pv\": {\n             \"acr\":[\n               { \"acor\": [ \"admin:admin\"], \"acop\":63 },\n               { \"acor\": [ \"/in-cse\"], \"acop\":63 },\n               { \"acor\": [ \"/mn-cse\"], \"acop\":63 }\n             ]\n           },\n           \"pvs\": {\n             \"acr\":[\n               { \"acor\": [ \"admin:admin\"], \"acop\":63 }\n             ]\n           }\n       }\n};\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 400,
+        "wires": [
+            [
+                "b5e192b9c28f8411"
+            ]
+        ]
+    },
+    {
+        "id": "2ee642f5a89909f3",
+        "type": "debug",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "875ebc9f3568b0a1",
+        "type": "file",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "filename": "/home/grau/ISS/Hackaton-/data.txt",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "true",
+        "encoding": "utf8",
+        "x": 380,
+        "y": 240,
+        "wires": [
+            [
+                "15d810fe40ba7033"
+            ]
+        ]
+    },
+    {
+        "id": "a958ef91b793622a",
+        "type": "inject",
+        "z": "80fa296fbd6a38c5",
+        "name": "create textfile",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "rainfall_24h(mm) rainfall_5d(mm) luminosity(lux) humidity(%) water_consumption(L) height(cm) temperature(°C) period date",
+        "payloadType": "str",
+        "x": 100,
+        "y": 240,
+        "wires": [
+            [
+                "875ebc9f3568b0a1",
+                "4704e3f7afa0d1a6",
+                "cc42ed5ad44cac7d"
+            ]
+        ]
+    },
+    {
+        "id": "15d810fe40ba7033",
+        "type": "debug",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "bd4727f8cb127a28",
+        "type": "file",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "filename": "/home/grau/ISS/Hackaton-/data.txt",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "utf8",
+        "x": 720,
+        "y": 660,
+        "wires": [
+            [
+                "15f12bb9cf825f06"
+            ]
+        ]
+    },
+    {
+        "id": "15f12bb9cf825f06",
+        "type": "debug",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 990,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "38a56b3c94bdc27c",
+        "type": "function",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "func": "\nvar luminosity=msg.payload.substring(msg.payload.indexOf(\"luminosity\")+13, msg.payload.indexOf(\",\"));\n\nmsg.payload = luminosity;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 900,
+        "y": 540,
+        "wires": [
+            [
+                "6d01d71ce8ebd9a9",
+                "80554893b1fffcdb"
+            ]
+        ]
+    },
+    {
+        "id": "ab0986c43cbfe224",
+        "type": "switch",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "3",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": true,
+        "outputs": 3,
+        "x": 350,
+        "y": 800,
+        "wires": [
+            [
+                "0d9ac3a16a766820",
+                "53fefed55366a947"
+            ],
+            [
+                "0d9ac3a16a766820",
+                "53fefed55366a947"
+            ],
+            [
+                "efa455011966e952"
+            ]
+        ]
+    },
+    {
+        "id": "8f84a1f3ea7c3737",
+        "type": "function",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "func": "\nvar auto = flow.get('auto');\n\nif(auto == 1){\n    msg.payload=\"auto\";\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 1060,
+        "wires": [
+            [
+                "641139768f84a434"
+            ]
+        ]
+    },
+    {
+        "id": "efa455011966e952",
+        "type": "function",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "func": "\nflow.set('auto', 1);\n\nmsg.payload=2;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 880,
+        "wires": [
+            [
+                "261c4badf71ab306"
+            ]
+        ]
+    },
+    {
+        "id": "e3f5094e2c407cda",
+        "type": "Named Sensor Data",
+        "z": "80fa296fbd6a38c5",
+        "name": "sensor_platform",
+        "cseConfig": "a516021431c03c43",
+        "aeConfig": "0b18cc3220f2fbbd",
+        "cntName": "DATA",
+        "cin": "la",
+        "x": 620,
+        "y": 1060,
+        "wires": [
+            [
+                "36bcae9fe4d178f2"
+            ]
+        ]
+    },
+    {
+        "id": "36bcae9fe4d178f2",
+        "type": "Content Extractor",
+        "z": "80fa296fbd6a38c5",
+        "name": "Content Extractor",
+        "x": 830,
+        "y": 1060,
+        "wires": [
+            [
+                "77ce8a50388cb474"
+            ]
+        ]
+    },
+    {
+        "id": "641139768f84a434",
+        "type": "switch",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "auto",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 450,
+        "y": 1060,
+        "wires": [
+            [
+                "e3f5094e2c407cda"
+            ]
+        ]
+    },
+    {
+        "id": "77ce8a50388cb474",
+        "type": "function",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "func": "\nvar param_strat=flow.get('strat_param');\nvar threshold=flow.get('val_param');\nvar start=msg.payload.indexOf(param_strat);\n\nvar val=msg.payload.substring(start+param_strat.length+3, msg.payload.indexOf(\",\"));\n\n\nif(0<parseInt(val)<threshold){\n    msg.payload=1;\n}else{\n    \n    msg.payload=2;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 1060,
+        "wires": [
+            [
+                "cfd417909d9c332c"
+            ]
+        ]
+    },
+    {
+        "id": "cfd417909d9c332c",
+        "type": "Content Instance",
+        "z": "80fa296fbd6a38c5",
+        "cseConfig": "a516021431c03c43",
+        "parentUri": "/in-cse/in-name/WATER_ACTUATOR/DATA",
+        "contentFormat": "text/plain",
+        "name": "water_a",
+        "x": 100,
+        "y": 1140,
+        "wires": [
+            [
+                "d768e1124f30d204",
+                "bfe2e23864f4aea0"
+            ]
+        ]
+    },
+    {
+        "id": "d768e1124f30d204",
+        "type": "debug",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 290,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "bfe2e23864f4aea0",
+        "type": "delay",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 110,
+        "y": 1200,
+        "wires": [
+            [
+                "f33cbc26d2c5ac67"
+            ]
+        ]
+    },
+    {
+        "id": "f76ab0900f9d1106",
+        "type": "Content Instance",
+        "z": "80fa296fbd6a38c5",
+        "cseConfig": "a516021431c03c43",
+        "parentUri": "/in-cse/in-name/WATER_ACTUATOR/DATA",
+        "contentFormat": "text/plain",
+        "name": "water_a",
+        "x": 420,
+        "y": 1200,
+        "wires": [
+            [
+                "381a1c9a95adfd74"
+            ]
+        ]
+    },
+    {
+        "id": "f33cbc26d2c5ac67",
+        "type": "function",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "func": "msg.payload=2;\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 1200,
+        "wires": [
+            [
+                "f76ab0900f9d1106"
+            ]
+        ]
+    },
+    {
+        "id": "381a1c9a95adfd74",
+        "type": "debug",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "53fefed55366a947",
+        "type": "function",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "func": "\nflow.set('auto', 0);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "261c4badf71ab306",
+        "type": "Content Instance",
+        "z": "80fa296fbd6a38c5",
+        "cseConfig": "a516021431c03c43",
+        "parentUri": "/in-cse/in-name/WATER_ACTUATOR/DATA",
+        "contentFormat": "text/plain",
+        "name": "water_a",
+        "x": 720,
+        "y": 880,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b44b169a15a832e3",
+        "type": "http in",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "url": "/",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 480,
+        "wires": [
+            [
+                "9786ca80fb3b249d",
+                "e9936527605ff026"
+            ]
+        ]
+    },
+    {
+        "id": "4704e3f7afa0d1a6",
+        "type": "Subscription",
+        "z": "80fa296fbd6a38c5",
+        "name": "SUB_APP",
+        "platform": "7c6dac04f9173a4c",
+        "sensor": "35d4807bb754b605",
+        "container": "DATA",
+        "path": "http://localhost:1880",
+        "x": 330,
+        "y": 120,
+        "wires": [
+            [
+                "b57050e1eca2c6db",
+                "e193ec6c49d305b9"
+            ]
+        ]
+    },
+    {
+        "id": "b57050e1eca2c6db",
+        "type": "debug",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 630,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "e193ec6c49d305b9",
+        "type": "switch",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Resource not found",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": true,
+        "outputs": 1,
+        "x": 470,
+        "y": 80,
+        "wires": [
+            [
+                "c1ec2ac099f987d4"
+            ]
+        ]
+    },
+    {
+        "id": "c1ec2ac099f987d4",
+        "type": "delay",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 320,
+        "y": 40,
+        "wires": [
+            [
+                "4704e3f7afa0d1a6"
+            ]
+        ]
+    },
+    {
+        "id": "f92ce683dcf28c6f",
+        "type": "inject",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "20",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 1060,
+        "wires": [
+            [
+                "8f84a1f3ea7c3737"
+            ]
+        ]
+    },
+    {
+        "id": "38928526873545b6",
+        "type": "ui_dropdown",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "b0f94a0f47cc5dad",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Luminosity",
+                "value": "luminosity",
+                "type": "str"
+            },
+            {
+                "label": "Humidity",
+                "value": "humidity",
+                "type": "str"
+            },
+            {
+                "label": "Temperature",
+                "value": "temperature",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 120,
+        "y": 1320,
+        "wires": [
+            [
+                "8d8dd43da7309856"
+            ]
+        ]
+    },
+    {
+        "id": "0188f6a4325c6ba1",
+        "type": "ui_numeric",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "label": "numeric",
+        "tooltip": "",
+        "group": "b0f94a0f47cc5dad",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1000",
+        "step": 1,
+        "x": 120,
+        "y": 1400,
+        "wires": [
+            [
+                "d21c6021fd13cf5d"
+            ]
+        ]
+    },
+    {
+        "id": "cc42ed5ad44cac7d",
+        "type": "function",
+        "z": "80fa296fbd6a38c5",
+        "name": "Decla_var",
+        "func": "\nflow.set('auto', 0);\nflow.set('param_strat', \"humidity\");\nflow.set('val_strat', 50);\nflow.set('Xaxix_height_graph', 0);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8d8dd43da7309856",
+        "type": "function",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "func": "\nflow.set('param_strat', msg.payload);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 1320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d21c6021fd13cf5d",
+        "type": "function",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "func": "\nflow.set('val_strat', msg.payload);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 1400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "820498b5851b339c",
+        "type": "ui_chart",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "group": "8f3217e4ba453cdf",
+        "order": 0,
+        "width": "6",
+        "height": "7",
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 1030,
+        "y": 1520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "083144b0c9c5bfcb",
+        "type": "function",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "func": "var Xaxis = 0;\nvar lines=msg.payload.split(\"\\n\");\nlines.shift();\nlines.pop();\n\nswitch(flow.get('Xaxis_height_graph')){\n    case 1:\n        Xaxis=-12;\n        break;\n    case 2:\n        Xaxis=-30;\n        break;\n    case 3:\n        Xaxis=-90;\n        break;\n}\n\n\nlines = lines.slice(Xaxis);\n\nvar data = lines.map(function(line){\n    return line.split(\" \")[3];\n        }\n    );\n    \nvar periods=[];\n\nif(Xaxis==-12){\nlines.forEach(function(element){\n    \n    periods.push(element.split(\" \")[5]+\"h\");\n})\n\n} else {\n    lines.forEach(function(element){\n    periods.push(element.split(\" \")[6]);\n    })\n}\n\nmsg.payload = [{\n    \"series\": [\"Y\"],\n    \"yAxisID\": 'custom-y-axis',\n    \"data\": [data],\n    \"labels\": periods\n}]\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 1520,
+        "wires": [
+            [
+                "820498b5851b339c"
+            ]
+        ]
+    },
+    {
+        "id": "8bb90c615388bfee",
+        "type": "function",
+        "z": "80fa296fbd6a38c5",
+        "name": "modify chart options",
+        "func": "let gridcolors = 'rgba(255, 160, 0, 0.3)'\nmsg.ui_control = {\n    options: {\n        legend: {\n            display: false\n        },\n        tooltips: {\n            enabled: false\n        },\n        scales: {\n            xAxes: [{\n                type: 'linear',\n                id: 'custom-x-axis',\n                position:'bottom',\n                padding:100,\n                gridLines:{\n                    color:gridcolors,\n                    zeroLineColor:'rgba(123, 113, 113, 0.75)',\n                    tickMarkLength:7,\n                    drawTicks:false\n                },\n                ticks: {\n                    fontColor:\"#ccc\",\n                    max: 60,\n                    min: 0,\n                    stepSize: 10\n                   \n                }\n            }],\n            yAxes: [{\n                id: 'custom-y-axis',\n                \n                gridLines:{\n                    color:gridcolors,\n                    zeroLineColor:'red',\n                    tickMarkLength:5,\n                    drawTicks:false\n                },\n                ticks: {\n                    fontColor:\"#ccc\",\n                    max: 30,\n                    min: 0,\n                    stepSize: 10\n                }\n            }]\n       }\n    }\n}\ndelete msg.payload\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 1580,
+        "wires": [
+            [
+                "820498b5851b339c"
+            ]
+        ]
+    },
+    {
+        "id": "3683bda448cdaf9a",
+        "type": "file in",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "filename": "/home/grau/ISS/Hackaton-/test.txt",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "utf8",
+        "allProps": false,
+        "x": 500,
+        "y": 1520,
+        "wires": [
+            [
+                "083144b0c9c5bfcb"
+            ]
+        ]
+    },
+    {
+        "id": "a4bb9bcc774889e9",
+        "type": "ui_dropdown",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "8f3217e4ba453cdf",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "12 last hours",
+                "value": 1,
+                "type": "num"
+            },
+            {
+                "label": "last month",
+                "value": 2,
+                "type": "num"
+            },
+            {
+                "label": "last year",
+                "value": 3,
+                "type": "num"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 100,
+        "y": 1580,
+        "wires": [
+            [
+                "8bb90c615388bfee",
+                "e5829f15efd26565",
+                "b99d4eb62c128545"
+            ]
+        ]
+    },
+    {
+        "id": "e5829f15efd26565",
+        "type": "function",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "func": "\nflow.set('Xaxis_height_graph', msg.payload)\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 1520,
+        "wires": [
+            [
+                "3683bda448cdaf9a"
+            ]
+        ]
+    },
+    {
+        "id": "b99d4eb62c128545",
+        "type": "debug",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 310,
+        "y": 1640,
+        "wires": []
+    },
+    {
+        "id": "f4dcddbcb6b1184a",
+        "type": "ui_text",
+        "z": "80fa296fbd6a38c5",
+        "group": "0e85e02b0c889ffb",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "rainfall (mm/h)",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 660,
+        "y": 1780,
+        "wires": []
+    },
+    {
+        "id": "6777771bb33aca52",
+        "type": "openweathermap in",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "wtype": "current",
+        "lon": "1.4652367459417293",
+        "lat": "43.57166912463606",
+        "city": "",
+        "country": "",
+        "language": "en",
+        "x": 280,
+        "y": 1720,
+        "wires": [
+            [
+                "9b825f375652475d"
+            ]
+        ]
+    },
+    {
+        "id": "cf70b4bdac33ac41",
+        "type": "debug",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 1720,
+        "wires": []
+    },
+    {
+        "id": "9b825f375652475d",
+        "type": "function",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "func": "\nif ('rain' in msg.payload){\n    msg.payload=msg.payload.rain;\n}else{\n        msg.payload=0;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 1720,
+        "wires": [
+            [
+                "cf70b4bdac33ac41",
+                "f4dcddbcb6b1184a"
+            ]
+        ]
+    },
+    {
+        "id": "e9936527605ff026",
+        "type": "openweathermap",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "wtype": "forecast",
+        "lon": "1.4652367459417293",
+        "lat": "43.57166912463606",
+        "city": "",
+        "country": "",
+        "language": "en",
+        "x": 130,
+        "y": 580,
+        "wires": [
+            [
+                "4afbe441e7adb982"
+            ]
+        ]
+    },
+    {
+        "id": "4afbe441e7adb982",
+        "type": "function",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "func": "\nvar data_24h = msg.payload.slice(0, 9);\n\nvar rain_24h = 0;\nvar rain_5d = 0;\n\n//Sum of rainfall over the next 24 h\ndata_24h.forEach(function(element){\n    \n    if('rain' in element){\n        rain_24h=element.rain[\"3h\"]+rain_24h;\n        \n    }\n    \n});\n\n//Sum of rainfall over the next 5 days\nmsg.payload.forEach(function(element){\n    \n    if('rain' in element){\n        rain_5d=element.rain[\"3h\"]+rain_5d;\n\n    }\n    \n});\n\nrain_5d=Math.round(rain_5d*1000)/1000;\nrain_24h=Math.round(rain_24h*1000)/1000;\n\n\nmsg.payload= rain_24h.toString()+\" \"+rain_5d.toString();\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 580,
+        "wires": [
+            [
+                "122e4b160bba53b3"
+            ]
+        ]
+    },
+    {
+        "id": "122e4b160bba53b3",
+        "type": "join",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "mode": "custom",
+        "build": "string",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": " ",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "5",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 490,
+        "y": 620,
+        "wires": [
+            [
+                "bd4727f8cb127a28"
+            ]
+        ]
+    },
+    {
+        "id": "62fbf17d5cecac6f",
+        "type": "CSE_CONFIG",
+        "cse": "in-cse",
+        "poa": "http://127.0.0.1:8080",
+        "cseId": "in-cse",
+        "cseName": "in-name",
+        "adminOriginator": "f61668fc7d761845"
+    },
+    {
+        "id": "0b18cc3220f2fbbd",
+        "type": "AE_CONFIG",
+        "aeName": "SENSOR_PLATFORM"
+    },
+    {
+        "id": "4d75a18b2c09ab27",
+        "type": "ui_group",
+        "name": "Data",
+        "tab": "296b4f73cc72f537",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "fed8b78c95e3d29a",
+        "type": "ui_group",
+        "name": "Water management",
+        "tab": "296b4f73cc72f537",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "a516021431c03c43",
+        "type": "CSE_CONFIG",
+        "cse": "server",
+        "poa": "http://127.0.0.1:8080",
+        "cseId": "in-cse",
+        "cseName": "in-name",
+        "adminOriginator": "f61668fc7d761845"
+    },
+    {
+        "id": "6ac72365387b5657",
+        "type": "AE_CONFIG",
+        "aeName": "WATER_ACTUATOR"
+    },
+    {
+        "id": "1ed92ba8cf15e170",
+        "type": "ACP_CONFIG",
+        "acpName": "acp"
+    },
+    {
+        "id": "7c6dac04f9173a4c",
+        "type": "xN_CSE",
+        "platform": "in-cse",
+        "URLBase": "http://127.0.0.1:8080/~/in-cse/in-name",
+        "user": "admin",
+        "password": "admin"
+    },
+    {
+        "id": "35d4807bb754b605",
+        "type": "AE",
+        "appId": "SENSOR_PLATFORM"
+    },
+    {
+        "id": "b0f94a0f47cc5dad",
+        "type": "ui_group",
+        "name": "Watering strategy",
+        "tab": "296b4f73cc72f537",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "8f3217e4ba453cdf",
+        "type": "ui_group",
+        "name": "Height evolution",
+        "tab": "296b4f73cc72f537",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "0e85e02b0c889ffb",
+        "type": "ui_group",
+        "name": "Current rainfall",
+        "tab": "296b4f73cc72f537",
+        "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "f61668fc7d761845",
+        "type": "ORIGINATOR_CONFIG",
+        "originatorName": "admin",
+        "originator": "admin:admin"
+    },
+    {
+        "id": "296b4f73cc72f537",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
