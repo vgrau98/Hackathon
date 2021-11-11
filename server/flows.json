@@ -33,27 +33,9 @@
         "y": 540,
         "wires": [
             [
-                "be25265ad7f3e185",
-                "38a56b3c94bdc27c"
+                "be25265ad7f3e185"
             ]
         ]
-    },
-    {
-        "id": "80554893b1fffcdb",
-        "type": "debug",
-        "z": "80fa296fbd6a38c5",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1130,
-        "y": 600,
-        "wires": []
     },
     {
         "id": "be25265ad7f3e185",
@@ -72,49 +54,6 @@
             [
                 "122e4b160bba53b3"
             ]
-        ]
-    },
-    {
-        "id": "6d01d71ce8ebd9a9",
-        "type": "ui_chart",
-        "z": "80fa296fbd6a38c5",
-        "name": "",
-        "group": "4d75a18b2c09ab27",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "label": "Luminosity",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "HH:mm:ss",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "",
-        "ymax": "",
-        "removeOlder": 1,
-        "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#1f77b4",
-            "#aec7e8",
-            "#ff7f0e",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "x": 1130,
-        "y": 540,
-        "wires": [
-            []
         ]
     },
     {
@@ -151,8 +90,8 @@
         "payload": "",
         "topic": "payload",
         "topicType": "msg",
-        "x": 120,
-        "y": 800,
+        "x": 160,
+        "y": 780,
         "wires": [
             [
                 "ab0986c43cbfe224"
@@ -172,8 +111,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 710,
-        "y": 800,
+        "x": 750,
+        "y": 780,
         "wires": []
     },
     {
@@ -186,8 +125,8 @@
         "appId": "api",
         "pointOfAccess": "http://127.0.0.1:8080/",
         "labels": "",
-        "x": 480,
-        "y": 320,
+        "x": 440,
+        "y": 280,
         "wires": [
             [
                 "3a48dcc3090eea5a"
@@ -203,8 +142,8 @@
         "acpConfig": "1ed92ba8cf15e170",
         "cntName": "DATA",
         "mni": "1000",
-        "x": 670,
-        "y": 320,
+        "x": 630,
+        "y": 280,
         "wires": [
             []
         ]
@@ -217,8 +156,8 @@
         "parentUri": "/in-cse/in-name/WATER_ACTUATOR/DATA",
         "contentFormat": "text/plain",
         "name": "water_a",
-        "x": 540,
-        "y": 780,
+        "x": 580,
+        "y": 760,
         "wires": [
             [
                 "9bec95cb36253d96"
@@ -239,8 +178,8 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 630,
-        "y": 400,
+        "x": 590,
+        "y": 360,
         "wires": [
             [
                 "2ee642f5a89909f3"
@@ -269,8 +208,8 @@
         "topic": "",
         "payload": "\"\"",
         "payloadType": "json",
-        "x": 250,
-        "y": 400,
+        "x": 210,
+        "y": 360,
         "wires": [
             [
                 "2cc13586d8d2af61",
@@ -289,8 +228,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 440,
-        "y": 400,
+        "x": 400,
+        "y": 360,
         "wires": [
             [
                 "b5e192b9c28f8411"
@@ -310,8 +249,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 810,
-        "y": 400,
+        "x": 770,
+        "y": 360,
         "wires": []
     },
     {
@@ -324,8 +263,8 @@
         "createDir": true,
         "overwriteFile": "true",
         "encoding": "utf8",
-        "x": 380,
-        "y": 240,
+        "x": 440,
+        "y": 220,
         "wires": [
             [
                 "15d810fe40ba7033"
@@ -353,8 +292,8 @@
         "topic": "",
         "payload": "rainfall_24h(mm) rainfall_5d(mm) luminosity(lux) humidity(%) water_consumption(L) height(cm) temperature(°C) period date",
         "payloadType": "str",
-        "x": 100,
-        "y": 240,
+        "x": 180,
+        "y": 220,
         "wires": [
             [
                 "875ebc9f3568b0a1",
@@ -376,8 +315,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 650,
-        "y": 240,
+        "x": 710,
+        "y": 220,
         "wires": []
     },
     {
@@ -416,26 +355,6 @@
         "wires": []
     },
     {
-        "id": "38a56b3c94bdc27c",
-        "type": "function",
-        "z": "80fa296fbd6a38c5",
-        "name": "",
-        "func": "\nvar luminosity=msg.payload.substring(msg.payload.indexOf(\"luminosity\")+13, msg.payload.indexOf(\",\"));\n\nmsg.payload = luminosity;\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 900,
-        "y": 540,
-        "wires": [
-            [
-                "6d01d71ce8ebd9a9",
-                "80554893b1fffcdb"
-            ]
-        ]
-    },
-    {
         "id": "ab0986c43cbfe224",
         "type": "switch",
         "z": "80fa296fbd6a38c5",
@@ -462,8 +381,8 @@
         "checkall": "false",
         "repair": true,
         "outputs": 3,
-        "x": 350,
-        "y": 800,
+        "x": 390,
+        "y": 780,
         "wires": [
             [
                 "0d9ac3a16a766820",
@@ -489,8 +408,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 280,
-        "y": 1060,
+        "x": 300,
+        "y": 1000,
         "wires": [
             [
                 "641139768f84a434"
@@ -525,8 +444,8 @@
         "aeConfig": "0b18cc3220f2fbbd",
         "cntName": "DATA",
         "cin": "la",
-        "x": 620,
-        "y": 1060,
+        "x": 640,
+        "y": 1000,
         "wires": [
             [
                 "36bcae9fe4d178f2"
@@ -538,8 +457,8 @@
         "type": "Content Extractor",
         "z": "80fa296fbd6a38c5",
         "name": "Content Extractor",
-        "x": 830,
-        "y": 1060,
+        "x": 850,
+        "y": 1000,
         "wires": [
             [
                 "77ce8a50388cb474"
@@ -563,8 +482,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 450,
-        "y": 1060,
+        "x": 470,
+        "y": 1000,
         "wires": [
             [
                 "e3f5094e2c407cda"
@@ -582,8 +501,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1020,
-        "y": 1060,
+        "x": 1040,
+        "y": 1000,
         "wires": [
             [
                 "cfd417909d9c332c"
@@ -598,8 +517,8 @@
         "parentUri": "/in-cse/in-name/WATER_ACTUATOR/DATA",
         "contentFormat": "text/plain",
         "name": "water_a",
-        "x": 100,
-        "y": 1140,
+        "x": 120,
+        "y": 1080,
         "wires": [
             [
                 "d768e1124f30d204",
@@ -620,8 +539,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 290,
-        "y": 1140,
+        "x": 310,
+        "y": 1080,
         "wires": []
     },
     {
@@ -641,8 +560,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 110,
-        "y": 1200,
+        "x": 130,
+        "y": 1140,
         "wires": [
             [
                 "f33cbc26d2c5ac67"
@@ -657,8 +576,8 @@
         "parentUri": "/in-cse/in-name/WATER_ACTUATOR/DATA",
         "contentFormat": "text/plain",
         "name": "water_a",
-        "x": 420,
-        "y": 1200,
+        "x": 440,
+        "y": 1140,
         "wires": [
             [
                 "381a1c9a95adfd74"
@@ -676,8 +595,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 260,
-        "y": 1200,
+        "x": 280,
+        "y": 1140,
         "wires": [
             [
                 "f76ab0900f9d1106"
@@ -697,8 +616,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 570,
-        "y": 1200,
+        "x": 590,
+        "y": 1140,
         "wires": []
     },
     {
@@ -712,10 +631,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 540,
-        "y": 840,
+        "x": 580,
+        "y": 820,
         "wires": [
-            []
+            [
+                "0e1cce3ddbd7bfb5"
+            ]
         ]
     },
     {
@@ -726,7 +647,7 @@
         "parentUri": "/in-cse/in-name/WATER_ACTUATOR/DATA",
         "contentFormat": "text/plain",
         "name": "water_a",
-        "x": 720,
+        "x": 700,
         "y": 880,
         "wires": [
             []
@@ -741,8 +662,8 @@
         "method": "post",
         "upload": false,
         "swaggerDoc": "",
-        "x": 150,
-        "y": 480,
+        "x": 170,
+        "y": 520,
         "wires": [
             [
                 "9786ca80fb3b249d",
@@ -759,8 +680,8 @@
         "sensor": "35d4807bb754b605",
         "container": "DATA",
         "path": "http://localhost:1880",
-        "x": 330,
-        "y": 120,
+        "x": 390,
+        "y": 100,
         "wires": [
             [
                 "b57050e1eca2c6db",
@@ -781,8 +702,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 630,
-        "y": 120,
+        "x": 690,
+        "y": 100,
         "wires": []
     },
     {
@@ -802,8 +723,8 @@
         "checkall": "true",
         "repair": true,
         "outputs": 1,
-        "x": 470,
-        "y": 80,
+        "x": 530,
+        "y": 60,
         "wires": [
             [
                 "c1ec2ac099f987d4"
@@ -827,8 +748,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 320,
-        "y": 40,
+        "x": 380,
+        "y": 20,
         "wires": [
             [
                 "4704e3f7afa0d1a6"
@@ -855,8 +776,8 @@
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "date",
-        "x": 110,
-        "y": 1060,
+        "x": 130,
+        "y": 1000,
         "wires": [
             [
                 "8f84a1f3ea7c3737"
@@ -897,8 +818,8 @@
         "payload": "",
         "topic": "topic",
         "topicType": "msg",
-        "x": 120,
-        "y": 1320,
+        "x": 240,
+        "y": 1240,
         "wires": [
             [
                 "8d8dd43da7309856"
@@ -924,8 +845,8 @@
         "min": 0,
         "max": "1000",
         "step": 1,
-        "x": 120,
-        "y": 1400,
+        "x": 240,
+        "y": 1300,
         "wires": [
             [
                 "d21c6021fd13cf5d"
@@ -937,14 +858,14 @@
         "type": "function",
         "z": "80fa296fbd6a38c5",
         "name": "Decla_var",
-        "func": "\nflow.set('auto', 0);\nflow.set('param_strat', \"humidity\");\nflow.set('val_strat', 50);\nflow.set('Xaxix_height_graph', 0);\n\nreturn msg;",
+        "func": "\nflow.set('auto', 0);\nflow.set('param_strat', \"humidity\");\nflow.set('val_strat', 50);\nflow.set('Xaxis_height_graph', 1);\nflow.set('g_rate', 0);\nflow.set('param_graph', \"humidity\");\n\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 320,
-        "y": 180,
+        "x": 380,
+        "y": 160,
         "wires": [
             []
         ]
@@ -960,8 +881,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 360,
-        "y": 1320,
+        "x": 480,
+        "y": 1240,
         "wires": [
             []
         ]
@@ -977,8 +898,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 360,
-        "y": 1400,
+        "x": 480,
+        "y": 1300,
         "wires": [
             []
         ]
@@ -1020,8 +941,8 @@
         ],
         "outputs": 1,
         "useDifferentColor": false,
-        "x": 1030,
-        "y": 1520,
+        "x": 1070,
+        "y": 1480,
         "wires": [
             []
         ]
@@ -1031,14 +952,14 @@
         "type": "function",
         "z": "80fa296fbd6a38c5",
         "name": "",
-        "func": "var Xaxis = 0;\nvar lines=msg.payload.split(\"\\n\");\nlines.shift();\nlines.pop();\n\nswitch(flow.get('Xaxis_height_graph')){\n    case 1:\n        Xaxis=-12;\n        break;\n    case 2:\n        Xaxis=-30;\n        break;\n    case 3:\n        Xaxis=-90;\n        break;\n}\n\n\nlines = lines.slice(Xaxis);\n\nvar data = lines.map(function(line){\n    return line.split(\" \")[3];\n        }\n    );\n    \nvar periods=[];\n\nif(Xaxis==-12){\nlines.forEach(function(element){\n    \n    periods.push(element.split(\" \")[5]+\"h\");\n})\n\n} else {\n    lines.forEach(function(element){\n    periods.push(element.split(\" \")[6]);\n    })\n}\n\nmsg.payload = [{\n    \"series\": [\"Y\"],\n    \"yAxisID\": 'custom-y-axis',\n    \"data\": [data],\n    \"labels\": periods\n}]\n\nreturn msg;",
+        "func": "var Xaxis = 0;\nvar param=0;\nvar lines=msg.payload.split(\"\\n\");\nlines.shift();\nlines.pop();\n\nswitch(flow.get('Xaxis_height_graph')){\n    case 1:\n        Xaxis=-12;\n        break;\n    case 2:\n        Xaxis=-30;\n        break;\n    case 3:\n        Xaxis=-90;\n        break;\n}\n\nswitch(flow.get('param_graph')){\n    case \"luminosity\":\n        param=2;\n        break;\n    case \"humidity\":\n        param=3;\n        break;\n    case \"water_consumption\":\n        param=4;\n        break;\n    case \"height\":\n        param=5;\n        break;\n    case \"temperature\":\n        param=6;\n        break;\n}\n\n\nlines = lines.slice(Xaxis);\n\nvar data = lines.map(function(line){\n    return line.split(\" \")[param];\n        }\n    );\n    \nvar periods=[];\n\nif(Xaxis==-12){\nlines.forEach(function(element){\n    \n    periods.push(element.split(\" \")[7]+\"h\");\n})\n\n} else {\n    lines.forEach(function(element){\n    periods.push(element.split(\" \")[8]);\n    })\n}\n\nmsg.payload = [{\n    \"series\": [\"Y\"],\n    \"yAxisID\": 'custom-y-axis',\n    \"data\": [data],\n    \"labels\": periods\n}]\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 760,
-        "y": 1520,
+        "x": 800,
+        "y": 1480,
         "wires": [
             [
                 "820498b5851b339c"
@@ -1050,14 +971,14 @@
         "type": "function",
         "z": "80fa296fbd6a38c5",
         "name": "modify chart options",
-        "func": "let gridcolors = 'rgba(255, 160, 0, 0.3)'\nmsg.ui_control = {\n    options: {\n        legend: {\n            display: false\n        },\n        tooltips: {\n            enabled: false\n        },\n        scales: {\n            xAxes: [{\n                type: 'linear',\n                id: 'custom-x-axis',\n                position:'bottom',\n                padding:100,\n                gridLines:{\n                    color:gridcolors,\n                    zeroLineColor:'rgba(123, 113, 113, 0.75)',\n                    tickMarkLength:7,\n                    drawTicks:false\n                },\n                ticks: {\n                    fontColor:\"#ccc\",\n                    max: 60,\n                    min: 0,\n                    stepSize: 10\n                   \n                }\n            }],\n            yAxes: [{\n                id: 'custom-y-axis',\n                \n                gridLines:{\n                    color:gridcolors,\n                    zeroLineColor:'red',\n                    tickMarkLength:5,\n                    drawTicks:false\n                },\n                ticks: {\n                    fontColor:\"#ccc\",\n                    max: 30,\n                    min: 0,\n                    stepSize: 10\n                }\n            }]\n       }\n    }\n}\ndelete msg.payload\nreturn msg;",
+        "func": "let gridcolors = 'rgba(255, 160, 0, 0.3)'\nvar max=60;\n\nif (flow.get(\"param_graph\")===\"luminosity\"){\n    max=1000;\n}\n\n\nmsg.ui_control = {\n    options: {\n        legend: {\n            display: false\n        },\n        tooltips: {\n            enabled: false\n        },\n        scales: {\n            xAxes: [{\n                type: 'linear',\n                id: 'custom-x-axis',\n                position:'bottom',\n                padding:100,\n                gridLines:{\n                    color:gridcolors,\n                    zeroLineColor:'rgba(123, 113, 113, 0.75)',\n                    tickMarkLength:7,\n                    drawTicks:false\n                },\n                ticks: {\n                    fontColor:\"#ccc\",\n                    max: 60,\n                    min: 0,\n                    stepSize: 10\n                   \n                }\n            }],\n            yAxes: [{\n                id: 'custom-y-axis',\n                \n                gridLines:{\n                    color:gridcolors,\n                    zeroLineColor:'red',\n                    tickMarkLength:5,\n                    drawTicks:false\n                },\n                ticks: {\n                    fontColor:\"#ccc\",\n                    max: max,\n                    min: 0,\n                    stepSize: 100\n                }\n            }]\n       }\n    }\n}\ndelete msg.payload\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 800,
-        "y": 1580,
+        "x": 840,
+        "y": 1540,
         "wires": [
             [
                 "820498b5851b339c"
@@ -1075,8 +996,8 @@
         "sendError": false,
         "encoding": "utf8",
         "allProps": false,
-        "x": 500,
-        "y": 1520,
+        "x": 540,
+        "y": 1480,
         "wires": [
             [
                 "083144b0c9c5bfcb"
@@ -1117,8 +1038,8 @@
         "payload": "",
         "topic": "topic",
         "topicType": "msg",
-        "x": 100,
-        "y": 1580,
+        "x": 140,
+        "y": 1540,
         "wires": [
             [
                 "8bb90c615388bfee",
@@ -1132,14 +1053,14 @@
         "type": "function",
         "z": "80fa296fbd6a38c5",
         "name": "",
-        "func": "\nflow.set('Xaxis_height_graph', msg.payload)\n\nreturn msg;",
+        "func": "\nflow.set('Xaxis_height_graph', msg.payload)\n\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 260,
-        "y": 1520,
+        "x": 300,
+        "y": 1480,
         "wires": [
             [
                 "3683bda448cdaf9a"
@@ -1159,8 +1080,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 310,
-        "y": 1640,
+        "x": 350,
+        "y": 1600,
         "wires": []
     },
     {
@@ -1301,6 +1222,347 @@
         ]
     },
     {
+        "id": "1f8ab9a25f7d5af3",
+        "type": "ui_numeric",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "label": "Growth rate (%)",
+        "tooltip": "",
+        "group": "81c68faa20e0222a",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "step": "0.1",
+        "x": 220,
+        "y": 2120,
+        "wires": [
+            [
+                "4eb70fc4115b132e"
+            ]
+        ]
+    },
+    {
+        "id": "6519b42d7be92dd4",
+        "type": "ui_text",
+        "z": "80fa296fbd6a38c5",
+        "group": "81c68faa20e0222a",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Suggested water consumption (L)",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 900,
+        "y": 2000,
+        "wires": []
+    },
+    {
+        "id": "df75d24b04848a0a",
+        "type": "ui_button",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "group": "81c68faa20e0222a",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Prediction",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "g_rate",
+        "payloadType": "flow",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 180,
+        "y": 1940,
+        "wires": [
+            [
+                "a7d20138ba834eed"
+            ]
+        ]
+    },
+    {
+        "id": "a7d20138ba834eed",
+        "type": "exec",
+        "z": "80fa296fbd6a38c5",
+        "command": "python3 /home/grau/ISS/Hackaton-/data_processing.py ",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 510,
+        "y": 1940,
+        "wires": [
+            [
+                "18bcc881086aad1b",
+                "6519b42d7be92dd4"
+            ],
+            [
+                "18bcc881086aad1b"
+            ],
+            [
+                "18bcc881086aad1b"
+            ]
+        ]
+    },
+    {
+        "id": "18bcc881086aad1b",
+        "type": "debug",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 910,
+        "y": 1940,
+        "wires": []
+    },
+    {
+        "id": "4eb70fc4115b132e",
+        "type": "function",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "func": "\nflow.set('g_rate', msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 2120,
+        "wires": [
+            [
+                "3a91ef9e0f4e5dc1"
+            ]
+        ]
+    },
+    {
+        "id": "3a91ef9e0f4e5dc1",
+        "type": "debug",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 2120,
+        "wires": []
+    },
+    {
+        "id": "866bba053deae029",
+        "type": "ui_dropdown",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "8f3217e4ba453cdf",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Luminosity",
+                "value": "luminosity",
+                "type": "str"
+            },
+            {
+                "label": "Humidity",
+                "value": "humidity",
+                "type": "str"
+            },
+            {
+                "label": "Temperature",
+                "value": "temperature",
+                "type": "str"
+            },
+            {
+                "label": "Water Consumption",
+                "value": "water_consumption",
+                "type": "str"
+            },
+            {
+                "label": "Height",
+                "value": "height",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 140,
+        "y": 1440,
+        "wires": [
+            [
+                "245e042eef65b674",
+                "8bb90c615388bfee"
+            ]
+        ]
+    },
+    {
+        "id": "245e042eef65b674",
+        "type": "function",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "func": "\nflow.set('param_graph', msg.payload)\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 1420,
+        "wires": [
+            [
+                "3683bda448cdaf9a"
+            ]
+        ]
+    },
+    {
+        "id": "343a0b1c53900506",
+        "type": "debug",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 830,
+        "y": 1400,
+        "wires": []
+    },
+    {
+        "id": "79b035219999c1e3",
+        "type": "comment",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "info": "In this first part, the app is initialized. A text file is created to store the data sent in oneM2M platform. \n\nAlso, a subscription ressource is created to collect data from the container DATA of AE PLATFORM_SENSOR (in IN node).\n\nFlows variables are declared. ",
+        "x": 880,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "8f79757e9e1dde58",
+        "type": "comment",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "info": "An AE and container oneM2M ressources are created to controll the electrovalve allowing watering. Two states are possible : ON or OFF. ",
+        "x": 920,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "0eb1e5e242223d03",
+        "type": "comment",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "info": "Thanks to the subscription created in the first part, the application is automatically notified when new data (content instance in DATA container of SENSOR_PLATFORM AE ) are published in IN node. At this moment we collect the last data published in the container (we could use directly the content of the request received but with node-red nodes this is simpler to get the last data published in the container.  \n\nData in oneM2M are relative to the sensor platform (luminosity, humidity, temperature, etc...). To have more complete information we collect other meteo data like rainfall prediction over 5 days. We compute 2 features ; prediction rainfall over 24h and 5 days.\n\nWe concatenate data and put them in the file text. Then data can be processed. ",
+        "x": 1000,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "ac36d2943adccb02",
+        "type": "comment",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "info": "The watering strategy can be managed by the user. He has three possibilities : \n- Water\n- Don't water\n- Define some rules to automatically water in some conditions\n- \nIn all those cases an content instance is created in oneM2M to have historical",
+        "x": 880,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "0e1cce3ddbd7bfb5",
+        "type": "Content Instance",
+        "z": "80fa296fbd6a38c5",
+        "cseConfig": "a516021431c03c43",
+        "parentUri": "/in-cse/in-name/WATER_ACTUATOR/DATA",
+        "contentFormat": "text/plain",
+        "name": "water_a",
+        "x": 740,
+        "y": 820,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "65766a123c19ae41",
+        "type": "comment",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "info": "Specific when water strategy is in auto mode\n\nEvery a certain amount of time (one hour here), watering strategy rules will be checked to know if application has to activate or not the watering. The watering is activated during 10 minutes and thne stopped. ",
+        "x": 800,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "6012da827e6a21d1",
+        "type": "comment",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "info": "Watering rules are composed of one parameter and one threshold value. \n\nAs soon as the last value receive from the sensor platform is above the threshold, watering is activated during 10 minutes. (in automatic mode only).\n\nIt's a prototype so strategic rules are very simple, but in future work we want to complexify them. More, These rules are made to build a dataset as relevant as possible for train AI algorithms. In the end the user is not supposed to care about these rules anymore but let an AI algo optimize the watering. But we have to collect Big relevant data first. ",
+        "x": 660,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "208e0063a52b988a",
+        "type": "comment",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "info": "To plot some features on a dashboard",
+        "x": 1080,
+        "y": 1420,
+        "wires": []
+    },
+    {
+        "id": "17504fc4740c1157",
+        "type": "comment",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "info": "To indicate the actual rainfall. Data are collected from internet",
+        "x": 880,
+        "y": 1740,
+        "wires": []
+    },
+    {
+        "id": "28824e3a530f8e99",
+        "type": "comment",
+        "z": "80fa296fbd6a38c5",
+        "name": "",
+        "info": "Depending data collected from the sensor platform and internet (rainfall prediction), we predict the necessary water quantity to reach a certain growth rate between two periods (in one hour). \nAs soon as the button is pushed the model is train with new data collected",
+        "x": 860,
+        "y": 2100,
+        "wires": []
+    },
+    {
         "id": "62fbf17d5cecac6f",
         "type": "CSE_CONFIG",
         "cse": "in-cse",
@@ -1313,16 +1575,6 @@
         "id": "0b18cc3220f2fbbd",
         "type": "AE_CONFIG",
         "aeName": "SENSOR_PLATFORM"
-    },
-    {
-        "id": "4d75a18b2c09ab27",
-        "type": "ui_group",
-        "name": "Data",
-        "tab": "296b4f73cc72f537",
-        "order": 1,
-        "disp": true,
-        "width": "6",
-        "collapse": false
     },
     {
         "id": "fed8b78c95e3d29a",
@@ -1379,7 +1631,7 @@
     {
         "id": "8f3217e4ba453cdf",
         "type": "ui_group",
-        "name": "Height evolution",
+        "name": "Data evolution",
         "tab": "296b4f73cc72f537",
         "order": 4,
         "disp": true,
@@ -1392,6 +1644,16 @@
         "name": "Current rainfall",
         "tab": "296b4f73cc72f537",
         "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "81c68faa20e0222a",
+        "type": "ui_group",
+        "name": "AI",
+        "tab": "296b4f73cc72f537",
+        "order": 6,
         "disp": true,
         "width": "6",
         "collapse": false
